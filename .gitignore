@@ -1,4 +1,5 @@
 *.c
 *.hex
 *.png
+*.md
 !keymap_ernest.c
