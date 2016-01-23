@@ -5,6 +5,7 @@
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
+#define DVOR 3 // Dvorak layer
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -18,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|  _   |           | Meh  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |Grv/L1|AltTab|LGui | Left | Right|                                       |  Up  | Down |   [  |   ]  | ~L1  |
+ *   |Grv/L1|AltTab| LGui | Left | Right|                                       |  Up  | Down |   [  |   ]  |  L3  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | App  | Del  |       | Alt  |Ctrl    |
@@ -45,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       LCTL(LGUI(KC_NO)),  KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_BSLS,
                           KC_H,   KC_J,   KC_K,   KC_L,   LT(MDIA, KC_SCLN),KC_QUOT,
              MEH_T(KC_NO),KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,          KC_RSFT,
-                                  KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,          KC_FN1,
+                                  KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,          TG(3),
              KC_LALT,        KC_RCTL,
              KC_PGUP,
              KC_PGDN,KC_ENT, KC_SPC
@@ -133,6 +134,49 @@ KEYMAP(
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_WBAK
 ),
+/* Keymap 4: Dvorak layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |   \    |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |   '  |   ,  |   .  |   P  |   Y  |      |           |      |   F  |   G  |   C  |   R  |   L  |   /    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |   A  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |S / L2|   -    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |   :  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  |   Z  |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |  '"  |      |      |      |      |                                       |      |      |      |      |        |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |        |
+ *                                 ,------|------|------|       |------+--------+------.
+ *                                 |      |      |      |       |      |        |      |
+ *                                 |      |      |------|       |------|        |      |
+ *                                 |      |      |      |       |      |        |      |
+ *                                 `--------------------'       `----------------------'
+ */
+// If it accepts an argument (i.e, is a function), it doesn't need KC_.
+// Otherwise, it needs KC_*
+[DVOR] = KEYMAP(  // layer 4 : Dvorak
+        // left hand
+        KC_TRNS,        KC_TRNS,        KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,
+        KC_TRNS,        KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y,   	KC_TRNS,
+        KC_TRNS,        KC_A,           KC_O,    KC_E,   KC_U,   KC_I,
+        KC_TRNS,        CTL_T(KC_SCLN), KC_Q,    KC_J,   KC_K,   KC_X,   	KC_TRNS,
+        KC_QUOT,		KC_TRNS,      	KC_TRNS, KC_TRNS,KC_TRNS,
+													 KC_TRNS,  KC_TRNS,
+                                                               KC_TRNS,
+                                               KC_TRNS,KC_TRNS,KC_TRNS,
+        // right hand
+             KC_TRNS,     	KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,        KC_BSLS,
+             KC_TRNS,       KC_F,   KC_G,   KC_C,   KC_R,   KC_L,           KC_SLSH,
+							KC_D,   KC_H,   KC_T,   KC_N,   LT(MDIA, KC_S), KC_MINS,
+             KC_TRNS,		KC_B,   KC_M,   KC_W,   KC_V,   KC_Z,      		KC_TRNS,
+									KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,        KC_TRNS,
+             KC_TRNS,        KC_TRNS,
+             KC_TRNS,
+             KC_TRNS,KC_TRNS, KC_TRNS
+    ),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
@@ -183,6 +227,9 @@ void * matrix_scan_user(void) {
         case 2:
             ergodox_right_led_2_on();
             break;
+		case 3:
+			ergodox_right_led_3_on();
+			break;
         default:
             // none
             break;
