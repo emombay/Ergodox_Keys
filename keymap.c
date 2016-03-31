@@ -37,10 +37,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EQL,         KC_1,         	KC_2,    KC_3,   KC_4,   KC_5,    	LCTL(KC_S),
         KC_TAB,         KC_Q,         	KC_W,    KC_F,   KC_P,   KC_G,   	KC_DELT,
         KC_FN0,        	KC_A,         	KC_R,    KC_S,   KC_T,   KC_D,
-        KC_LSFT,        KC_Z, 					KC_X,    KC_C,   KC_V,   KC_B,   	KC_UNDS,
-				M(3),						M(1),      		KC_LALT, LCTL(KC_Z),LCTL(KC_Y),
-                                                KC_LGUI,  KC_ESC,
-                                                              KC_HOME,
+        KC_LSFT,        KC_Z, 			KC_X,    KC_C,   KC_V,   KC_B,   	KC_UNDS,
+		M(3),			M(1),      		M(4), 	 LCTL(KC_Z),LCTL(KC_Y),
+														KC_LGUI,  KC_ESC,
+																  KC_HOME,
                                             CTL_T(KC_SPC),KC_BSPC,KC_END,
         // right hand
             TG(SYMB),     		KC_6,   KC_7,   KC_8,   KC_9,   KC_0,            KC_MINS,
@@ -260,6 +260,10 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 		} else {
 			return MACRO( U(LSFT), U(LCTL), END );
 		}
+		case 4: 
+		if (record->event.pressed) {
+			return MACRO( T(LGUI), END );
+		} 
 		break;
       }
     return MACRO_NONE;
