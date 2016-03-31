@@ -262,8 +262,10 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 		}
 		case 4: 
 		if (record->event.pressed) {
-			return MACRO( T(LGUI), END );
-		} 
+			return MACRO( D(LGUI), END );
+		} else {
+			return MACRO( U(LGUI), END );
+		}
 		break;
       }
     return MACRO_NONE;
