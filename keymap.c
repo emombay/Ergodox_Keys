@@ -2,23 +2,23 @@
 #include "debug.h"
 #include "action_layer.h"
 
-#define COLE 0 // Colemak layer
+#define WORK 0 // Workman layer
 #define BASE 1 // QWERTY layer
-#define WORK 2 // Workman layer
+#define COLE 2 // Colemak layer
 #define SYMB 3 // symbols
 #define MDIA 4 // media keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/* Keymap 0: Colemak layer
+/* Keymap 0: Workman layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   =    |   1  |   2  |   3  |   4  |   5  | Save |           |  L2  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   F  |   P  |   G  | Del  |           | Ctr+ |   J  |   L  |   U  |   Y  |   ;  |   \    |
+ * | Tab    |   Q  |   D  |   R  |   W  |   B  | Del  |           | Ctr+ |   J  |   F  |   U  |   P  |   ;  |   \    |
  * |--------+------+------+------+------+------|      |           | Win  |------+------+------+------+------+--------|
- * |   L1   |   A  |   R  |   S  |   T  |   D  |------|           |------|   H  |   N  |   E  |   I  |   O  |   '    |
+ * |   L1   |   A  |   S  |   H  |   T  |   G  |------|           |------|   Y  |   N  |   E  |   O  |   I  |   '    |
  * |--------+------+------+------+------+------|  _   |           | Meh  |------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   K  |   M  |   ,  |   .  |/ ~L3 | RShift |
+ * | LShift |   Z  |   X  |   M  |   C  |   V  |      |           |      |   K  |   L  |   ,  |   .  |/ ~L3 | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |Ctl+Sh|AltTab| LGui | Undo | Redo |                                       | Left |  Up  | Down |Right | ->L1 |
  *   `----------------------------------'                                       `----------------------------------'
@@ -32,21 +32,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
-[COLE] = KEYMAP(  // layer 0 : Colemak
+[WORK] = KEYMAP(  // layer 0 : Colemak
         // left hand
-        KC_EQL,         KC_1,         	KC_2,    KC_3,   KC_4,   KC_5,    	LCTL(KC_S),
-        KC_TAB,         KC_Q,         	KC_W,    KC_F,   KC_P,   KC_G,   	KC_DELT,
-        KC_FN0,        	KC_A,         	KC_R,    KC_S,   KC_T,   KC_D,
-        KC_LSFT,        KC_Z, 			KC_X,    KC_C,   KC_V,   KC_B,   	KC_UNDS,
-		M(3),			M(1),      		M(4), 	 LCTL(KC_Z),LCTL(KC_Y),
-														KC_LGUI,  KC_ESC,
+        KC_EQL,         KC_1,       KC_2,    KC_3,   KC_4,   KC_5,    	LCTL(KC_S),
+        KC_TAB,         KC_Q,       KC_D,    KC_R,   KC_W,   KC_B,   	KC_DELT,
+        KC_FN0,        	KC_A,       KC_S,    KC_H,   KC_T,   KC_G,
+        KC_LSFT,        KC_Z,       KC_X,    KC_M,   KC_C,   KC_V,   	KC_UNDS,
+		M(3),			M(1),      	M(4), 	 LCTL(KC_Z),LCTL(KC_Y),
+														 KC_LGUI,  KC_ESC,
 																  LCTL(KC_C),
                                             CTL_T(KC_SPC),KC_BSPC,LCTL(KC_V),
         // right hand
             TG(SYMB),     		KC_6,   KC_7,   KC_8,   KC_9,   KC_0,            KC_MINS,
-            M(2),  				KC_J,   KC_L,   KC_U,   KC_Y,   KC_SCLN,         KC_BSLS,
-								KC_H,   KC_N,   KC_E,   KC_I,   KC_O, 			 KC_QUOT,
-            MEH_T(KC_NO),		KC_K,   KC_M,   KC_COMM,KC_DOT, LT(MDIA,KC_SLSH),KC_RSFT,
+            M(2),  				KC_J,   KC_F,   KC_U,   KC_P,   KC_SCLN,         KC_BSLS,
+								KC_Y,   KC_N,   KC_E,   KC_O,   KC_I, 			 KC_QUOT,
+            MEH_T(KC_NO),		KC_K,   KC_L,   KC_COMM,KC_DOT, LT(MDIA,KC_SLSH),KC_RSFT,
 										KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,KC_FN2,
 			KC_HOME,        KC_END,
 			KC_PGUP,
@@ -94,16 +94,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_TRNS,
              KC_TRNS,KC_TRNS, KC_TRNS
     ),
-/* Keymap 2: Workman layer
+/* Keymap 2: Colemak layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |   1  |   2  |   3  |   4  |   5  |      |           |  L2  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   Q  |   D  |   R  |   W  |   B  |      |           | Ctr+ |   J  |   F  |   U  |   P  |   ;  |   \    |
+ * |        |   Q  |   W  |   F  |   P  |   G  |      |           | Ctr+ |   J  |   L  |   U  |   Y  |   ;  |   \    |
  * |--------+------+------+------+------+------|      |           | Win  |------+------+------+------+------+--------|
- * |        |   A  |   S  |   H  |   T  |   G  |------|           |------|   Y  |   N  |   E  |   O  |   I  |   '    |
+ * |        |   A  |   R  |   S  |   T  |   D  |------|           |------|   H  |   N  |   E  |   I  |   O  |   '    |
  * |--------+------+------+------+------+------|      |           | Meh  |------+------+------+------+------+--------|
- * | 	    |   Z  |   X  |   M  |   C  |   V  |      |           |      |   K  |   L  |   ,  |   .  |  /   | RShift |
+ * | 	    |   Z  |   X  |   C  |   V  |   B  |      |           |      |   K  |   M  |   ,  |   .  |  /   | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |  Up  | Down |   [  | ]/L3 | ->L0 |
  *   `----------------------------------'                                       `----------------------------------'
@@ -115,21 +115,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |Space | End  |       | PgDn |        |      |
  *                                 `--------------------'       `----------------------'
  */
- [WORK] = KEYMAP(  // layer 0 : default
+ [COLE] = KEYMAP(  // layer 0 : default
         // left hand
         KC_TRNS,	KC_1,       KC_2,   KC_3,   KC_4,   KC_5,   KC_TRNS,
-        KC_TRNS,	KC_Q,       KC_D,   KC_R,   KC_W,   KC_B,   KC_TRNS,
-        KC_TRNS,	KC_A,       KC_S,   KC_H,   KC_T,   KC_G,
-        KC_TRNS,	KC_Z,       KC_X,   KC_M,   KC_C,   KC_V,   KC_TRNS,
+        KC_TRNS,	KC_Q,       KC_W,   KC_F,   KC_P,   KC_G,   KC_TRNS,
+        KC_TRNS,	KC_A,       KC_R,   KC_S,   KC_T,   KC_D,
+        KC_TRNS,	KC_Z, 		KC_X,   KC_C,   KC_V,   KC_B,   KC_TRNS,
         KC_TRNS, 	KC_TRNS,	KC_TRNS,KC_TRNS,KC_TRNS,
                                                 KC_TRNS,  		KC_TRNS,
 																KC_TRNS,
                                                 KC_TRNS,KC_TRNS,KC_TRNS,
         // right hand
              KC_TRNS,    	KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   	KC_MINS,
-			 KC_TRNS,  		KC_J,   KC_F,   KC_U,   KC_P,   KC_SCLN,   	KC_BSLS,
-							KC_Y,   KC_N,   KC_E,   KC_O,   KC_I,		KC_QUOT,
-             KC_TRNS,		KC_K,   KC_L,   KC_COMM,KC_DOT, KC_SLSH,	KC_RSFT,
+			 KC_TRNS,  		KC_J,   KC_L,   KC_U,   KC_Y,   KC_SCLN,   	KC_BSLS,
+							KC_H,   KC_N,   KC_E,   KC_I,   KC_O,		KC_QUOT,
+             KC_TRNS,		KC_K,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,	KC_RSFT,
                                   KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,	KC_FN1,
              KC_TRNS,        KC_TRNS,
              KC_TRNS,
@@ -293,7 +293,7 @@ void matrix_scan_user(void) {
         case SYMB:			
 			ergodox_right_led_1_on();
             break;
-		case WORK:			
+		case COLE:			
 			ergodox_right_led_1_on();
 			ergodox_right_led_2_on();
             break;
