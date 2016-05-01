@@ -223,9 +223,9 @@ KEYMAP(
 
 const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TAP_TOGGLE(SYMB),                // FN0 - Momentary Layer 1 (Symbols)
-	[1] = ACTION_LAYER_SET_CLEAR(WORK),					// FN1 - Go to Colemak Layer
+	[1] = ACTION_LAYER_SET_CLEAR(COLE),					// FN1 - Go to Colemak Layer
 	[2] = ACTION_LAYER_SET(BASE, ON_RELEASE), 			// FN2 - Go to QWERTY Layer
-	[3] = ACTION_LAYER_SET(WORK, ON_RELEASE)			// FN3 - Go to Workman Layer
+	[3] = ACTION_LAYER_SET(COLE, ON_RELEASE)			// FN3 - Go to Workman Layer
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
