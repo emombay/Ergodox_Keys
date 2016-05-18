@@ -13,9 +13,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Workman layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   =    |   1  |   2  |   3  |   4  |   5  | Save |           | Num  |   6  |   7  |   8  |   9  |   0  |   -    |
+ * |    `   |   1  |   2  |   3  |   4  |   5  | Save |           | Num  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   D  |   R  |   W  |   B  | Del  |           | Ctr+ |   J  |   F  |   U  |   P  |   ;  |   \    |
+ * |  Tab   |   Q  |   D  |   R  |   W  |   B  | Del  |           | Ctr+ |   J  |   F  |   U  |   P  |   ;  |   \    |
  * |--------+------+------+------+------+------|      |           | Win  |------+------+------+------+------+--------|
  * |   L1   |   A  |   S  |   H  |   T  |   G  |------|           |------|   Y  |   N  |   E  |   O  |   I  |   '    |
  * |--------+------+------+------+------+------|  _   |           | Meh  |------+------+------+------+------+--------|
@@ -35,12 +35,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [WORK] = KEYMAP(  // layer 0 : Colemak
         // left hand
-        KC_EQL,         KC_1,       KC_2,    KC_3,   KC_4,   KC_5,    	LCTL(KC_S),
+        KC_GRV,         KC_1,       KC_2,    KC_3,   KC_4,   KC_5,    	LCTL(KC_S),
         KC_TAB,         KC_Q,       KC_D,    KC_R,   KC_W,   KC_B,   	KC_DELT,
         KC_FN0,        	KC_A,       KC_S,    KC_H,   KC_T,   KC_G,
         KC_LSFT,        KC_Z,       KC_X,    KC_M,   KC_C,   KC_V,   	KC_UNDS,
 		M(3),			M(1),      	M(4), 	 LCTL(KC_Z),LCTL(KC_Y),
-														 KC_LGUI,  KC_ESC,
+														 KC_LALT,  KC_ESC,
 																  LCTL(KC_C),
                                             CTL_T(KC_SPC),KC_BSPC,LCTL(KC_V),
         // right hand
@@ -186,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |------|           |------| Down |   4  |   5  |   6  |   +  |        |
+ * |        |      |      |      |      |      |------|           |------| Down |   4  |   5  |   6  |   +  |   Ins  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |   &  |   1  |   2  |   3  |   \  |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -214,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
        KC_TRNS, KC_UP,   KC_7,   KC_8,    KC_9,    KC_ASTR, KC_F12,
-                KC_DOWN, KC_4,   KC_5,    KC_6,    KC_PLUS, KC_TRNS,
+                KC_DOWN, KC_4,   KC_5,    KC_6,    KC_PLUS, KC_INS,
        KC_TRNS, KC_AMPR, KC_1,   KC_2,    KC_3,    KC_BSLS, KC_TRNS,
                          KC_TRNS,KC_DOT,  KC_0,    KC_EQL,  KC_TRNS,
        KC_TRNS, KC_TRNS,
