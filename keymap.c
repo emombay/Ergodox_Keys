@@ -21,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|  _   |           | Meh  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   M  |   C  |   V  |      |           |      |   K  |   L  |   ,  |   .  |/ ~L3 | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |Ctl+Sh|AltTab| LGui | Undo | Redo |                                       | Left |  Up  | Down |Right | ->L1 |
+ *   |Ctl+Sh|AltTab| LGui | Undo | Redo |                                       | Left | Down |  Up  |Right | ->L1 |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | Alt  | Esc  |       | Home | End   |
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             M(2),  				KC_J,   KC_F,   KC_U,   KC_P,   KC_SCLN,         KC_BSLS,
 								KC_Y,   KC_N,   KC_E,   KC_O,   KC_I, 			 KC_QUOT,
             MEH_T(KC_NO),		KC_K,   KC_L,   KC_COMM,KC_DOT, LT(MDIA,KC_SLSH),KC_RSFT,
-										KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,KC_FN2,
+										KC_LEFT,KC_DOWN,  KC_UP,KC_RGHT,KC_FN2,
 			KC_HOME,        KC_END,
 			KC_PGUP,
 			KC_PGDN,KC_ENT, KC_SPC
