@@ -1,8 +1,8 @@
-#include <stdarg.h>
-#include "ergodox.h"
+#include QMK_KEYBOARD_H
 #include "debug.h"
-#include "version.h"
+#include <stdarg.h>
 #include "action_layer.h"
+#include "version.h"
 #include "action_util.h"
 #include "eeconfig.h"
 
