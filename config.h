@@ -1,9 +1,11 @@
-#ifndef CONFIG_USER_H
-#define CONFIG_USER_H
+#ifndef ERGODOX_EZ_CONFIG_H
+#define ERGODOX_EZ_CONFIG_H
 
-#define DEBOUNCE    16
+#include QMK_KEYBOARD_CONFIG_H
 
-#include "config.h"
+#undef DEBOUNCE
+#define DEBOUNCE    10
+
 #define ONESHOT_TAP_TOGGLE 2
 #define ONESHOT_TIMEOUT 3000
 
@@ -14,4 +16,3 @@
 #define FORCE_NKRO
 #define LEADER_TIMEOUT 1000
 
-#include "../../config.h"
